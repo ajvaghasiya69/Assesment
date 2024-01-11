@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Clock</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      margin: 100px;
+      font-size: 2em;
+      background-color: #f0f0f0;
+      color: #333;
+    }
+
+    .clock-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #date, #time {
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="clock-container">
+    <div id="date"></div>
+    <div id="time"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    // Days of the week array
+    let daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+    // Months array
+    let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+    // Function to update the digital clock
+    function updateDigitalClock() {
+      let now = new Date();
+
+      let dayOfWeek = daysOfWeek[now.getDay()];
+      let day = now.getDate();
+      let month = months[now.getMonth()];
+      let year = now.getFullYear();
+
+      let hours = now.getHours();
+      let minutes = now.getMinutes();
+      let seconds = now.getSeconds();
+
+      // Convert to 12-hour format and determine AM/PM
+      let amPm = hours >= 12 ? 'PM' : 'AM';
+      hours = hours % 12 || 12; // Handle midnight (12 AM)
+
+      // Add leading zero if the value is less than 10
+      hours = (hours < 10) ? '0' + hours : hours;
+      minutes = (minutes < 10) ? '0' + minutes : minutes;
+      seconds = (seconds < 10) ? '0' + seconds : seconds;
+
+      // Display the date in the specified format
+      $('#date')
+        .html(`${dayOfWeek}, ${day} ${month} ${year}`)
+        .css({
+          'background-color': '#fff',
+          'color': '#333',
+          'font-size' : '24px',
+          'background-color' : 'skyblue',
+          'font-family' : 'serif',
+          'border' : '5px solid blue'
+                });
+
+      // Display the time in the specified format
+      $('#time')
+        .html(`${hours}:${minutes}:${seconds} ${amPm}`)
+        .css({
+          'background-color': 'teal',
+          'color': 'khaki',
+          'border' : '5px solid pink',
+          'font-size' : '45px',
+        });
+    }
+
+    // Update the clock every second
+    setInterval(updateDigitalClock, 1000);
+
+    // Initial call to set the clock immediately when the page loads
+    updateDigitalClock();
+  </script>
+
+</body>
+</html>

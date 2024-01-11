@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contect form</title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+   <style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .container{
+        background-color: rgb(172, 208, 241);
+        width: 55%;
+        margin: 50px auto;
+    }
+    .contect{
+        padding: 10px 10px 15px 0px;
+        font-size: 17px;
+        font-family: sans-serif;
+        border-bottom: 1px solid grey;
+    }
+    .section{
+        width: 95%;
+        margin: 0 auto;
+    }
+    .box1{
+        background-color: white;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+     
+    }
+    .box1 p{
+        padding-left: 15px;
+        padding-top: 10px;
+       
+    }
+    .call{
+       color: red;
+       font-family: sans-serif;
+    }
+    .phone{
+        font-size: 15px;
+        padding-top: 3px;
+        padding-left: 3px;
+        height: 20px;
+        width: 20px;
+        background-color: red;
+        color: white;
+        border-radius: 3px;
+    }
+    .mail{
+        color: cyan;
+        font-size: 20px;
+        
+    }
+    .gmail{
+       font-family: sans-serif;
+       color: cyan;
+      
+    }
+    .flex1{
+        display: flex;
+        gap: 50px;
+    }
+    .address{
+        line-height: 25px;
+    }
+    .location{
+        color: red;
+        font-size: 30px;
+        padding-top: 20px;
+        padding-left: 50px;
+    }
+    .box2{
+        margin-top: 20px;
+        background-color: white;
+        display: flex;
+    }
+    input{
+        padding: 5px;
+       margin-left: 10px;
+       width: 150px;
+    }
+    .input{
+        margin-top: 10px;
+    }
+    button{
+        height: 30px;
+        width: 50px;
+        color: white;
+        background-color: red;
+        border: none;
+        border-radius: 3px;
+        margin-left: 10px;
+    }
+    .part2{
+        margin-left: 20px;
+        margin-top: 10px;
+        
+       }
+   
+    
+   </style>
+</head>
+<body>
+    <div class="container">
+    <div class="section">
+        <p class="contect">CONTECT US</p>
+        <div class="box1">
+            <p>ADDRESS :
+           
+            
+            
+            </p>
+            <div class="flex1">
+                <p class="address">
+                    Saint Marco Street,6th <br>
+                    floor,Tokyo,Japan,123456.
+                </p>
+                <div class="number">
+                    <p class="call"><i class="fa-solid fa-phone phone"></i> +91 123456789 
+                   
+                    </p>
+                    <p class="gmail"> <i class="fa-solid fa-envelope mail"> </i> example@gmail.com</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-location-dot location"></i>
+                </div>
+            </div>
+        </div>
+        <div class="box2">
+            <div class="part1">
+                <form action="">
+                    <input class="input" type="text" placeholder=" Name :" required>
+                    <input class="input" type="text" placeholder=" Company :" required> <br><br>
+                    <input type="text" placeholder=" Email :" required>
+                    <input type="text" placeholder=" Mobile :"> <br><br>
+                   <textarea name="" id="" cols="40" rows="7" placeholder=" Massage:" style="margin-left: 10px;"></textarea required> <br> <br>
+                   <button>Send</button>
+                    
+                </form>
+            </div>
+            <div class="part2">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.9387159667594!2d72.55434837531396!3d23.02602227917143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e84faa5a36071%3A0x9af325a448f09478!2sTops%20Technologies!5e0!3m2!1sgu!2sin!4v1701233351451!5m2!1sgu!2sin" width="350" height="270" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                     
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
