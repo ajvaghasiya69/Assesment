@@ -5,95 +5,184 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Digital Clock</title>
   <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      text-align: center;
-      margin: 100px;
-      font-size: 2em;
-      background-color: #f0f0f0;
-      color: #333;
+      *
+    {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
     }
-
-    .clock-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    .parent
+    {
+        width: fit-content;
+        border: 5px solid;
+        border-radius: 10px;
+        margin: 20px 10px;
+        display: flex;
+        column-gap: 10px;
+        background: linear-gradient(rgb(58, 11, 167),yellow,pink);
+        color: black;
+        font-size: 50px;
     }
-
-    #date, #time {
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      margin-bottom: 20px;
+    .Main-parent
+    {
+        width: fit-content;
+        border: 5px solid black;
+        font-size: 30px;
+        color: black;
+        display: flex;
+        column-gap: 10px;
+        background: linear-gradient(rgb(0, 34, 128),aliceblue,pink);
+        margin: 20px 10px;
+    }
+    .parent{
+      margin-left: 43%;
+    }
+    .Main-parent{
+      margin-left: 41%;
     }
   </style>
 </head>
 <body>
 
-  <div class="clock-container">
-    <div id="date"></div>
-    <div id="time"></div>
-  </div>
+  <div class="Main-parent">
+    <p id="p4"></p>
+    <p id="p5"></p>
+    <p id="p6"></p>
+    <p id="p7"></p>
+</div>
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
-    // Days of the week array
-    let daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+<div class="parent">
+    <p id="p1"></p>
+    <p id="p2"></p>
+    <p id="p3"></p>
+</div>
 
-    // Months array
-    let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+<script>
+    function check() {
+        let date=new Date();
+        
+        let hours=date.getHours();
+        let minute=date.getMinutes();
+        let second=date.getSeconds();
 
-    // Function to update the digital clock
-    function updateDigitalClock() {
-      let now = new Date();
+        
+        if (hours==13)
+        {
+            hours=1;
+            // document.getElementById('p3').innerHTML+'pm';
+            document.getElementById('p3').innerHTML=second+' PM';
+        }
+        else 
+         {
+          document.getElementById('p3').innerHTML=second+' AM';  
+        }
 
-      let dayOfWeek = daysOfWeek[now.getDay()];
-      let day = now.getDate();
-      let month = months[now.getMonth()];
-      let year = now.getFullYear();
+        
+        document.getElementById('p1').innerHTML=hours+':';
+        document.getElementById('p2').innerHTML=minute+':';
+        // document.getElementById('p3').innerHTML=second+'pm';
 
-      let hours = now.getHours();
-      let minutes = now.getMinutes();
-      let seconds = now.getSeconds();
-
-      // Convert to 12-hour format and determine AM/PM
-      let amPm = hours >= 12 ? 'PM' : 'AM';
-      hours = hours % 12 || 12; // Handle midnight (12 AM)
-
-      // Add leading zero if the value is less than 10
-      hours = (hours < 10) ? '0' + hours : hours;
-      minutes = (minutes < 10) ? '0' + minutes : minutes;
-      seconds = (seconds < 10) ? '0' + seconds : seconds;
-
-      // Display the date in the specified format
-      $('#date')
-        .html(`${dayOfWeek}, ${day} ${month} ${year}`)
-        .css({
-          'background-color': '#fff',
-          'color': '#333',
-          'font-size' : '24px',
-          'background-color' : 'skyblue',
-          'font-family' : 'serif',
-          'border' : '5px solid blue'
-                });
-
-      // Display the time in the specified format
-      $('#time')
-        .html(`${hours}:${minutes}:${seconds} ${amPm}`)
-        .css({
-          'background-color': 'teal',
-          'color': 'khaki',
-          'border' : '5px solid pink',
-          'font-size' : '45px',
-        });
     }
+    check();
+    setInterval(check,1000);
 
-    // Update the clock every second
-    setInterval(updateDigitalClock, 1000);
+    function second()
+    { 
+    let date=new Date();
+    let subdata=date.getDay();
 
-    // Initial call to set the clock immediately when the page loads
-    updateDigitalClock();
-  </script>
+  if (subdata==1)
+   {
+    subdata= "Monday";  
+    }
+    else if (subdata==2)
+     {
+    subdata="Tuesday";  
+    }
+    else if (subdata==3) 
+    {
+    subdata="wednesday";  
+    } 
+    else if (subdata==4) 
+    {
+            subdata="Thursday";  
+    } 
+    else if (subdata==5)
+     {
+            subdata="Friday";  
+    }
+     else if (subdata==6)
+      {
+            subdata="saturday";  
+    }
+     else if (subdata==7)
+      {
+            subdata="Sunday";  
+    }
+    else
+    {
+        subdata='Thanks';
+    }
+    document.getElementById('p4').innerHTML=subdata+',';
 
+    let month=date.getMonth();
+
+    switch(month)
+    {
+    case 0:
+      month="January";
+      break;
+    case 1:
+      month="February";
+      break;
+    case 2:
+      month="March";
+      break;
+    case 3:
+      month="April";
+      break;
+    case 4:
+      month="May";
+      break;
+    case 5:
+      month="June";
+      break;
+    case 6:
+      month="July";
+      break;
+    case 7:
+      month="August";
+      break;
+    case 8:
+      month="September";
+      break;
+    case 9:
+      month="October";
+      break;
+    case 10:
+      month="November";
+      break;
+    case 11:
+      month="December";
+      break;
+    default:
+      month="Invalid month";
+  }
+  document.getElementById('p5').innerHTML=month;
+
+  let day=date.getDate();
+
+  document.getElementById('p6').innerHTML=day+',';
+
+  let year=date.getFullYear();
+  document.getElementById('p7').innerHTML=year;
+}
+second();
+setInterval(second,1000);
+
+
+
+</script>
 </body>
 </html>
