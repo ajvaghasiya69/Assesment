@@ -70,11 +70,13 @@ margin-top: 20px;
            
             let monthDiff = dayDiff / 30;
             let yearDiff = monthDiff / 12;
-document.getElementById('between').innerHTML = `Date interval between ${fromDate} and ${toDate}`;
-            document.getElementById('date').innerHTML = `Difference in days: ${dayDiff}`;
-            document.getElementById('month').innerHTML = `Difference in months: ${monthDiff}`;
-            document.getElementById('week').innerHTML = `Difference in weeks: ${weekDiff}`;
-            document.getElementById('year').innerHTML = `Difference in years: ${yearDiff}`;
+            document.getElementById('between').innerHTML = `Date interval between ${(fromDate)} and ${toDate}`;
+
+document.getElementById('date').innerHTML = `Difference in days: ${parseInt(dayDiff)}`;
+document.getElementById('month').innerHTML = `Difference in months: ${parseInt(monthDiff)}`;
+document.getElementById('week').innerHTML = `Difference in weeks: ${parseInt(weekDiff)}`;
+document.getElementById('year').innerHTML = `Difference in years: ${parseInt(yearDiff)}`;
+
         }
     </script>
 </body>
