@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            background-color: rgb(5, 95, 131);
+            color: white;
+            width: 250px;
+            margin-left: 40%;
+            padding: 10px;
+           margin-top: 10px;
+           border-radius: 10px;
+           
+        }
+        form{
+            margin-left: 43%;
+            margin-top: 5%;
+        }
+        #to{
+            margin-left: 18px;
+        }
+        button{
+            margin-left: 40px;
+            color: white;
+            background-color: rgb(5, 95, 131);
+            border: none;
+            height: 20px;
+            border-radius: 2px;
+        }
+        h1{
+text-align: center;
+margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Date interval</h1>
+    <form action="">
+        <label for="from">From</label>
+        <input type="date" name="from" id="from"> <br>
+        <label for="to">To</label>
+        <input type="date" name="to" id="to"> <br>
+        <button type="button" onclick="calculate()">Calculate</button>
+    </form>
+    <div class="box">
+        <p id="between"></p>
+    <hr>
+        <p id="date"></p>
+    <p id="month"></p>
+    <p id="week"></p>
+    <p id="year"></p>
+    <hr>
+
+    </div>
+   
+    
+    <script>
+        function calculate() {
+            let fromDate = new Date(document.getElementById('from').value);
+            let toDate = new Date(document.getElementById('to').value);
+
+        
+            let timeDiff = toDate - fromDate;
+            let dayDiff = timeDiff / (1000 * 60 * 60 * 24);
+            let weekDiff = dayDiff / 7;
+
+           
+            let monthDiff = dayDiff / 30;
+            let yearDiff = monthDiff / 12;
+document.getElementById('between').innerHTML = `Date interval between ${fromDate} and ${toDate}`;
+            document.getElementById('date').innerHTML = `Difference in days: ${dayDiff}`;
+            document.getElementById('month').innerHTML = `Difference in months: ${monthDiff}`;
+            document.getElementById('week').innerHTML = `Difference in weeks: ${weekDiff}`;
+            document.getElementById('year').innerHTML = `Difference in years: ${yearDiff}`;
+        }
+    </script>
+</body>
+</html>
